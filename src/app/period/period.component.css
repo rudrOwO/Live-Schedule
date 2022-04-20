@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    place-items: center;
+    color: black;
+}
+
+.course {
+    font-weight: bold;
+}
