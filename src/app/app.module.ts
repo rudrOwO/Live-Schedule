@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { PeriodComponent } from './period/period.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CreatePeriodComponent } from './create-period/create-period.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CreatePeriodComponent } from './create-period/create-period.component';
     ScheduleComponent,
     CreatePeriodComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

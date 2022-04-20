@@ -55,6 +55,15 @@ export class ScheduleService {
 
   }
 
+  getRecentsPeriod():Period[]{
+    console.log(this.updateListPeriod.length);
+    return this.updateListPeriod;
+  }
+
+  getRecentType():String[]{
+    return this.updateListType;
+  }
+
   
 
   // HTTP to be Processed [By Rudro]
