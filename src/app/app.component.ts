@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,6 +10,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'LiveSchedule';
 
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  signUp(){
+    this.router.navigate(['signup']);
+  }
+  
 
 
 }
