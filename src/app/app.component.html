@@ -1,7 +1,8 @@
+
+
 <nav
   class="navbar navbar-expand-lg navbar-dark bg-dark"
-  style="box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)"
->
+  style="box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)">
   <button
     class="navbar-toggler"
     type="button"
@@ -15,16 +16,31 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <button type="button" class="btn btn-outline-secondary" >Recents</button>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        
       </li>
     </ul>
   </div>
 
   <div id="navbarTogglerDemo03" style="float: right; margin-right: 30px">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
+      <li>
+        
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data- 
+        bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+     <li>
+
         <button type="button" class="btn btn-outline-light" (click)="signUp()">
           Log In
         </button>
@@ -32,5 +48,6 @@
     </ul>
   </div>
 </nav>
+
 
 <router-outlet></router-outlet>

@@ -27,17 +27,35 @@ export class ScheduleService {
   };
 
   // Changelog Service [By Proma]
-  recentlyAddedList: Period[] = [
+  //0 for new
+  //1 for updated
+  //2 for delete
+ 
+
+  public updateListPeriod :Period[] = [
     new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+    new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+    new Period(0, 0, 'SE 511', true, ['AB', 'CD'])
   ];
 
-  recentlyChangedList: Period[] = [
-    new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
-  ];
+   updateListType :String[] = [
+    "created", "updated", "deleted"
+  ]
 
-  recentlyRemovedList: Period[] = [
-    new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
-  ];
+  updateRecents(period:Period, type : String){
+    if(this.updateListPeriod.length == 5){
+      
+      this.updateListPeriod.splice(this.updateListPeriod.length-1,1);
+      this.updateListType.splice(this.updateListType.length-1,1);
+
+    }   
+    
+    this.updateListPeriod.unshift(period);
+    this.updateListType.unshift(type);
+
+  }
+
+  
 
   // HTTP to be Processed [By Rudro]
 }
