@@ -9,6 +9,12 @@
     color: white;
 }
 
+.btn {
+    margin-top: 7vh;
+    margin-bottom: 1vh;
+    padding: 2px;
+}
+
 .invisible {
     cursor: normal;
     width: 100%;

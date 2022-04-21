@@ -7,6 +7,9 @@
     {{ associatedPeriod.courseCode }}
   </div>
   <div class="teacher">{{ associatedPeriod.courseTeachers }}</div>
+  <button class="btn btn-primary" (click)="this.setPeriodToBeUpdated()">
+    change
+  </button>
 </div>
 
 <div class="invisible" *ngIf="this.associatedPeriod.courseCode === ''">

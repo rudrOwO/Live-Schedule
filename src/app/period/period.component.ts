@@ -17,4 +17,9 @@ export class PeriodComponent implements OnInit {
   ngOnInit(): void {
     this.bgColor = this.schedule.colorMap[this.associatedPeriod.courseCode];
   }
+
+  setPeriodToBeUpdated(): void {
+    this.schedule.periodToBeUpdated = this.associatedPeriod;
+    console.log('Made');
+  }
 }

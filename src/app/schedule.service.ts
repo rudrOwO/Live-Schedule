@@ -8,6 +8,8 @@ import Period from './models/period';
 export class ScheduleService {
   constructor() {}
 
+  periodToBeUpdated: Period = new Period(0, 0, '', false, ['']);
+
   colorMap: any = {
     'SE 511': '#0891b2',
     'CSE 502': '#db2777',
@@ -33,7 +35,10 @@ export class ScheduleService {
     ],
     MON: [new Period(0, 0, 'SE 511', true, ['AB', 'CD'])],
     TUE: [new Period(0, 0, 'BUS 503', true, ['AB', 'CD'])],
-    WED: [new Period(0, 0, '', true, ['AB', 'CD'])],
+    WED: [
+      new Period(0, 0, '', true, ['AB', 'CD']),
+      new Period(0, 0, 'BUS 503', true, ['AB', 'CD']),
+    ],
     THU: [new Period(0, 0, 'SE 511', true, ['AB', 'CD'])],
   };
 
@@ -53,6 +58,4 @@ export class ScheduleService {
   recentlyRemovedList: Period[] = [
     new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
   ];
-
-  // HTTP to be Processed [By Rudro]
 }
