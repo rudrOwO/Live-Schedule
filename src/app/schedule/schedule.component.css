@@ -1,17 +1,17 @@
 .table {
-    width: 75vw;
-    height: 75vh;
-    inset: 0;
-    margin: auto;
-    text-align: center;
-    vertical-align: middle;
+  width: 75vw;
+  height: 75vh;
+  inset: 0;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
 }
 td {
-    padding : 0px;
-    border-width: 1.5px;
-    border-color: black;
+  padding: 0px;
+  border-width: 1.5px;
+  border-color: black;
 }
 
 th {
-    border-color: black;
+  border-color: black;
 }

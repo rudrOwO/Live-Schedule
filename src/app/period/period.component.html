@@ -15,4 +15,7 @@
 <div class="invisible" *ngIf="this.associatedPeriod.courseCode === ''">
   <div class="course">null</div>
   <div class="teacher">null</div>
+  <button class="btn btn-primary" (click)="this.setPeriodToBeUpdated()">
+    Add
+  </button>
 </div>

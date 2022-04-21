@@ -24,6 +24,10 @@ export class ScheduleComponent implements OnInit {
   getSchedule(): Schedule {
     return this.schedule;
   }
+  
+   getScheduleFromServer():void {
+      this.scheduleService.getJSON();
+  }
 
   ngOnInit(): void {}
 }

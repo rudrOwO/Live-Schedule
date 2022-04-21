@@ -9,6 +9,22 @@ export class ScheduleService {
   constructor() {}
 
   periodToBeUpdated: Period = new Period(0, 0, '', false, ['']);
+  
+ async getJSON() {
+     this.schedule =  await fetch('10.100.104.19:8000/', {
+       method: 'GET',
+       mode: 'no-cors',
+       headers: {
+         'content-type': 'application/json',
+       }
+     })
+    .then(response => response.json());
+    
+    console.log(this.schedule);
+    //  schedule set here
+    
+  }
+  
 
   colorMap: any = {
     'SE 511': '#0891b2',
