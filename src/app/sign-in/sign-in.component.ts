@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserSignUp } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,13 +10,17 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private uService: UserService) { }
+  user = new UserSignUp();
 
   ngOnInit(): void {
   }
 
   redirect(){
+    if(this.user.pass1 === this.user.pass2){
+    this.uService.postUserSignUpData(this.user);
     this.router.navigate(['login']);
+    }
   }
 
 }
