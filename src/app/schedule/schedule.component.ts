@@ -20,7 +20,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   signUp(){
-    this.router.navigate(['signup']);
+    this.router.navigate(['login']);
   }
 
 }

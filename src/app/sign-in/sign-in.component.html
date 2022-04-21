@@ -17,27 +17,27 @@
                     <form>
                         <div class="form-group">
                             <label class="form-control-label" >USERNAME</label>
-                            <input type="text" class="form-control" [(ngModel)] = "user.username" [ngModelOptions]="{standalone:true}">
+                            <input type="text" class="form-control" name ="username" [(ngModel)] = "user.username" [ngModelOptions]="{standalone:true}">
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">EMAIL</label>
-                            <input type="email" class="form-control" [(ngModel)] = "user.email" [ngModelOptions]="{standalone:true}">
+                            <input type="email" class="form-control"  name ="email" [(ngModel)] = "user.email" [ngModelOptions]="{standalone:true}">
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">PASSWORD</label>
-                            <input type="password" class="form-control" [(ngModel)] = "user.pass1" [ngModelOptions]="{standalone:true}" >
+                            <input type="password" class="form-control" name ="pass1" [(ngModel)] = "user.pass1" [ngModelOptions]="{standalone:true}" >
                         </div>
 
                         <div class="form-group">
                             <label class="form-control-label"> RE-ENTER PASSWORD</label>
-                            <input type="password" class="form-control" [(ngModel)] = "user.pass2" [ngModelOptions]="{standalone:true}" >
+                            <input type="password" class="form-control" name ="pass2" [(ngModel)] = "user.pass2" [ngModelOptions]="{standalone:true}" >
                         </div>
 
                         <div class="col-lg-12 loginbttm">
                             <div class="col-lg-6 login-btm login-text" style ="color: green;">
                             </div>
                             <div class="col-lg-6 login-btm login-button">
-                                <button type="submit" class="glow-on-hover" style ="margin-left:  160px;" (click)="redirect()">PROCEED</button>
+                                <button type="submit" class="glow-on-hover" style ="margin-left:  160px;" (click)="submit()">PROCEED</button>
                             </div>
                             
                         </div>
@@ -45,16 +45,16 @@
 
                    
               
-           
-            <div class="col-lg-3 col-md-2" style="padding:40px ">
+                    <div class="col-lg-3 col-md-2" style="padding:45px;  ">
 
                 
-               </div>
-            </div>
-            
-        </div>
-        <span style ="padding-bottom: 100px;"><a routerLink="" class="link-success" style="margin-top: 100px; color:#96b4a8 " (click)="redirect()">Already have an account?</a></span>
-        <br><br>
+                    </div>
+                 </div>
+                 
+             </div>
+       
+             <span style ="padding-bottom: 100px;"><a routerLink="" class="link-success" style="margin-top: 100px; color:#96b4a8 " (click)="redirect()">Already have an account?</a></span>
+             <br><br>
   
         
     </div>

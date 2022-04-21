@@ -51,14 +51,15 @@
               Log In
             </button>
           </li>
+
+
+          <li>
+           
+          </li>
         </ul>
       </div>
     </nav>
-    <ol ngbDropdownMenu *ngFor ="let l of listItems; let i = index">
-      <li *ngIf="listTypes[i]==='created'" style ="background-color:rgb(72, 195, 170) ; color:aliceblue; padding:10px; text-align : center"  ngbDropdownItem>{{l.courseCode}} </li>
-      <li *ngIf="listTypes[i]==='updated'" style ="background-color:rgb(224, 214, 102) ; color:aliceblue; padding:10px; text-align : center"  ngbDropdownItem>{{l.courseCode}} </li>
-      <li *ngIf="listTypes[i]==='deleted'" style ="background-color:rgb(228, 118, 108) ; color:aliceblue; padding:10px; text-align : center"  ngbDropdownItem>{{l.courseCode}} </li>
-    </ol>
+   
     </body>
-    <router-outlet></router-outlet>
+
     

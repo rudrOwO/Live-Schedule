@@ -17,10 +17,18 @@ export class SignInComponent implements OnInit {
   }
 
   redirect(){
-    if(this.user.pass1 === this.user.pass2){
-    this.uService.postUserSignUpData(this.user);
+   
     this.router.navigate(['login']);
-    }
+    
+  }
+
+  submit(){
+    if(this.user.pass1 === this.user.pass2){
+      console.log(this.user);
+      this.uService.postUserSignUpData(this.user);
+      this.router.navigate(['login']);
+      }
+
   }
 
 }

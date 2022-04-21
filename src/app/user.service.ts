@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UserLogIn, UserSignUp } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ export class UserService {
 constructor() { }
 
 
- async postUserLogInData(user:any) {
+ async postUserLogInData(user:UserLogIn) {
+   console.log(user);
   return await fetch('https://10.100.104.19:8000/login', {
     method: 'POST',
     headers: {
@@ -21,7 +23,8 @@ constructor() { }
  }
 
 
- async postUserSignUpData(user:any) {
+ async postUserSignUpData(user:UserSignUp) {
+   console.log(user);
   return await fetch('https://10.100.104.19:8000/signup', {
     method: 'POST',
     headers: {

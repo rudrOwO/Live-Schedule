@@ -16,8 +16,12 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  redirect(){
+  submit(){
+    console.log(this.user);
     this.uService.postUserLogInData(this.user);
+    
+  }
+  redirect(){
     this.router.navigate(['signup']);
   }
 
