@@ -18,4 +18,8 @@ export default class Period {
     this.isTheory = isTheory;
     this.courseTeachers = courseTeachers;
   }
+
+  public getDuration(): number {
+    return this.endTime - this.startTime;
+  }
 }

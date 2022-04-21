@@ -26,6 +26,21 @@ export class ScheduleService {
     'SE 506': ['SA', 'KKG'],
   };
 
+  private schedule: Schedule = {
+    SUN: [
+      new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+      new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+    ],
+    MON: [new Period(0, 0, 'SE 511', true, ['AB', 'CD'])],
+    TUE: [new Period(0, 0, 'BUS 503', true, ['AB', 'CD'])],
+    WED: [new Period(0, 0, '', true, ['AB', 'CD'])],
+    THU: [new Period(0, 0, 'SE 511', true, ['AB', 'CD'])],
+  };
+
+  public getSchedule() {
+    return this.schedule;
+  }
+
   // Changelog Service [By Proma]
   recentlyAddedList: Period[] = [
     new Period(0, 0, 'SE 511', true, ['AB', 'CD']),

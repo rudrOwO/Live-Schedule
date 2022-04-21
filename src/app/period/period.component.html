@@ -1,4 +1,15 @@
-<div class="container">
-  <div class="course"></div>
-  <div>SE,AB</div>
+<div
+  *ngIf="this.associatedPeriod.courseCode !== ''"
+  class="visible"
+  [style.backgroundColor]="this.bgColor"
+>
+  <div class="course">
+    {{ associatedPeriod.courseCode }}
+  </div>
+  <div class="teacher">{{ associatedPeriod.courseTeachers }}</div>
+</div>
+
+<div class="invisible" *ngIf="this.associatedPeriod.courseCode === ''">
+  <div class="course">null</div>
+  <div class="teacher">null</div>
 </div>

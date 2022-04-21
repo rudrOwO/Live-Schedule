@@ -1,0 +1,39 @@
+<table class="table table-bordered">
+  <tr>
+    <th *ngFor="let time of timeArray">{{ time }}</th>
+  </tr>
+  <tr>
+    <td>SUN</td>
+    <td *ngFor="let period of this.getSchedule().SUN">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+
+  <tr>
+    <td>MON</td>
+    <td *ngFor="let period of this.getSchedule().MON">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+
+  <tr>
+    <td>TUE</td>
+    <td *ngFor="let period of this.getSchedule().TUE">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+
+  <tr>
+    <td>WED</td>
+    <td *ngFor="let period of this.getSchedule().WED">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+
+  <tr>
+    <td>THU</td>
+    <td *ngFor="let period of this.getSchedule().THU">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+</table>
