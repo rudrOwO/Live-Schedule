@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ScheduleService } from './schedule.service';
-import Period from './models/period';
+
 
 
 @Component({
@@ -12,18 +11,13 @@ import Period from './models/period';
 export class AppComponent {
   title = 'LiveSchedule';
 
-  constructor(private router: Router, private schedule :ScheduleService ) { }
+  constructor() { }
 
-  listItems : Period[] = this.schedule.getRecentsPeriod();
-  listTypes : String[] = this.schedule.getRecentType();
-  
+
   ngOnInit(): void {
   }
 
-  signUp(){
-    this.router.navigate(['signup']);
-  }
-  
+
 
 
 }
