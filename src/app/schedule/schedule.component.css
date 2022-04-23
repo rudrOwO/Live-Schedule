@@ -1,24 +1,20 @@
-.sidenav {
-    height: 100%; 
-    width: 0; 
-    position: fixed;
-    z-index: 1; 
-    top: 0; 
-    left: 0;
-    background-color: #111; 
-    overflow-x: hidden;
-    padding-top: 60px; 
-    transition: 0.5s;
-  }
+.table {
+  width: 75vw;
+  height: 75vh;
+  inset: 0;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+td {
+  padding: 0px;
+  border-width: 1.5px;
+  border-color: black;
+}
 
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
+th {
+  border-color: black;
+}
   
 
   .sidenav a:hover {

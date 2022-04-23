@@ -8,6 +8,24 @@ import Period from './models/period';
 export class ScheduleService {
   constructor() {}
 
+  periodToBeUpdated: Period = new Period(0, 0, '', false, ['']);
+  
+ async getJSON() {
+     this.schedule =  await fetch('10.100.104.19:8000/', {
+       method: 'GET',
+       mode: 'no-cors',
+       headers: {
+         'content-type': 'application/json',
+       }
+     })
+    .then(response => response.json());
+    
+    console.log(this.schedule);
+    //  schedule set here
+    
+  }
+  
+
   colorMap: any = {
     'SE 511': '#0891b2',
     'CSE 502': '#db2777',
@@ -26,45 +44,34 @@ export class ScheduleService {
     'SE 506': ['SA', 'KKG'],
   };
 
-  // Changelog Service [By Proma]
-  //0 for new
-  //1 for updated
-  //2 for delete
- 
+  private schedule: Schedule = {
+    SUN: [
+      new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+      new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+    ],
+    MON: [new Period(0, 0, 'SE 511', true, ['AB', 'CD'])],
+    TUE: [new Period(0, 0, 'BUS 503', true, ['AB', 'CD'])],
+    WED: [
+      new Period(0, 0, '', true, ['AB', 'CD']),
+      new Period(0, 0, 'BUS 503', true, ['AB', 'CD']),
+    ],
+    THU: [new Period(0, 0, 'SE 511', true, ['AB', 'CD'])],
+  };
 
-  public updateListPeriod :Period[] = [
+  public getSchedule() {
+    return this.schedule;
+  }
+
+  // Changelog Service [By Proma]
+  recentlyAddedList: Period[] = [
     new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
-    new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
-    new Period(0, 0, 'SE 511', true, ['AB', 'CD'])
   ];
 
-   updateListType :String[] = [
-    "created", "updated", "deleted"
-  ]
+  recentlyChangedList: Period[] = [
+    new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+  ];
 
-  updateRecents(period:Period, type : String){
-    if(this.updateListPeriod.length == 5){
-      
-      this.updateListPeriod.splice(this.updateListPeriod.length-1,1);
-      this.updateListType.splice(this.updateListType.length-1,1);
-
-    }   
-    
-    this.updateListPeriod.unshift(period);
-    this.updateListType.unshift(type);
-
-  }
-
-  getRecentsPeriod():Period[]{
-    console.log(this.updateListPeriod.length);
-    return this.updateListPeriod;
-  }
-
-  getRecentType():String[]{
-    return this.updateListType;
-  }
-
-  
-
-  // HTTP to be Processed [By Rudro]
+  recentlyRemovedList: Period[] = [
+    new Period(0, 0, 'SE 511', true, ['AB', 'CD']),
+  ];
 }

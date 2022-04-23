@@ -11,12 +11,15 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'LiveSchedule';
 
-  constructor() { }
+  constructor(private router : Router) { }
 
 
   ngOnInit(): void {
   }
 
+  signUp(){
+    this.router.navigate(['signup']);
+  }
 
 
 

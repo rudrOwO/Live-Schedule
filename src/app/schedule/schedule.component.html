@@ -1,65 +1,43 @@
-<body>
-    <nav
-      class="navbar navbar-expand-lg navbar-dark bg-dark"
-      style="box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            
-          </li>
-        </ul>
-      </div>
-    
-      <div id="navbarTogglerDemo03" style="float: right; margin-right: 30px">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li>
-    
-          
-            
-            <div class="dropdown">
-              <button class="dropbtn btn btn-outline-light">Recents</button>
-              <div class="dropdown-content" >
-               
-              
-                 <ul *ngFor = "let l of listItems; let i = index"  style="list-style-type: square; height:50px;" >
-                  <li *ngIf="listTypes[i] === 'created'" style ="background-color:rgb(176, 212, 176) ; color:aliceblue; padding:10px; text-align : center; " > {{l.courseCode}} </li>
-                  <li *ngIf="listTypes[i] === 'updated'" style ="background-color:rgb(223, 237, 146) ; color:aliceblue; padding:10px; text-align : center" >{{l.courseCode}}</li>
-                  <li *ngIf="listTypes[i] === 'deleted'" style ="background-color:rgb(236, 128, 128) ; color:aliceblue; padding:10px; text-align : center" >{{l.courseCode}}</li>
-                </ul>
-              </div>
-            </div>
-            
-         <li>
-    
-            <button type="button" class="btn btn-outline-light" (click)="signUp()">
-              Log In
-            </button>
-          </li>
+<table class="table table-bordered">
+  <tr>
+    <th *ngFor="let time of timeArray">{{ time }}</th>
+  </tr>
+  <tr>
+    <td>SUN</td>
+    <td *ngFor="let period of this.getSchedule().SUN">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
 
+  <tr>
+    <td>MON</td>
+    <td *ngFor="let period of this.getSchedule().MON">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
 
-          <li>
-           
-          </li>
-        </ul>
-      </div>
-    </nav>
-   
-    </body>
+  <tr>
+    <td>TUE</td>
+    <td *ngFor="let period of this.getSchedule().TUE">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
 
-    
+  <tr>
+    <td>WED</td>
+    <td *ngFor="let period of this.getSchedule().WED">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+
+  <tr>
+    <td>THU</td>
+    <td *ngFor="let period of this.getSchedule().THU">
+      <app-period [associatedPeriod]="period"></app-period>
+    </td>
+  </tr>
+</table>
+
+<button (click)="this.getScheduleFromServer()" class="btn btn-danger">
+  Get Data
+</button>
