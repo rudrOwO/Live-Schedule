@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserSignUp } from '../user';
+import { User } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,7 +11,11 @@ import { UserService } from '../user.service';
 export class SignInComponent implements OnInit {
 
   constructor(private router:Router, private uService: UserService) { }
-  user = new UserSignUp();
+  user = new User();
+  pass2 : String = "";
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  showSucessMessage!:boolean;
+  serverErrorMessages!: string;
 
   ngOnInit(): void {
   }
@@ -23,12 +27,28 @@ export class SignInComponent implements OnInit {
   }
 
   submit(){
-    if(this.user.pass1 === this.user.pass2){
+    if(this.user.password === this.pass2){
       console.log(this.user);
-      this.uService.postUserSignUpData(this.user);
-      this.router.navigate(['login']);
-      }
-
+      this.uService.postUser(this.user).subscribe(
+        res => {
+          this.showSucessMessage = true;
+          setTimeout(() => this.showSucessMessage = false, 4000);
+          if(this.showSucessMessage == true){
+            this.router.navigate(['/login']);
+          }
+        },
+        err => {
+          if (err.status === 422) {
+            this.serverErrorMessages = err.error.join('<br/>');
+            console.log(this.serverErrorMessages);
+          }
+          else
+            this.serverErrorMessages = 'Something went wrong.';
+            console.log(this.serverErrorMessages);
+        }
+      );
+    }
   }
-
 }
+
+

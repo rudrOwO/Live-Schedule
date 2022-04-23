@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserLogIn } from '../user';
+import { User } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,16 +11,38 @@ import { UserService } from '../user.service';
 export class SignUpComponent implements OnInit {
 
   constructor(private router :Router, private uService : UserService) { }
-  user : UserLogIn = new UserLogIn();
+  user = new User();
+
+  showSucessMessage!:boolean;
+  serverErrorMessages!: string;
 
   ngOnInit(): void {
   }
 
   submit(){
     console.log(this.user);
-    this.uService.postUserLogInData(this.user);
     
+    this.uService.loginUser(this.user).subscribe(
+      res => {
+        this.showSucessMessage = true;
+        setTimeout(() => this.showSucessMessage = false, 4000);
+        if(this.showSucessMessage == true){
+          this.router.navigate(['']);
+        }
+      },
+      err => {
+        if (err.status === 422) {
+          this.serverErrorMessages = err.error.join('<br/>');
+          console.log(this.serverErrorMessages);
+        }
+        else
+          this.serverErrorMessages = 'Something went wrong.';
+          console.log(this.serverErrorMessages);
+      }
+    );
   }
+  
+  
   redirect(){
     this.router.navigate(['signup']);
   }

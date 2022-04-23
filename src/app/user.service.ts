@@ -1,40 +1,22 @@
 import { Injectable } from '@angular/core';
-import { UserLogIn, UserSignUp } from './user';
+import { User } from './user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-constructor() { }
+constructor(private http: HttpClient) { }
 
+postUser(user: User){
+  return this.http.post('http://localhost:3000/api'+'/register',user);
+}
 
- async postUserLogInData(user:UserLogIn) {
-   console.log(user);
-  return await fetch('https://10.100.104.19:8000/login', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({user})
-  })
-  .then(raw => raw.json());
- }
-
-
- async postUserSignUpData(user:UserSignUp) {
-   console.log(user);
-  return await fetch('https://10.100.104.19:8000/signup', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({user})
-  })
-  .then(raw => raw.json());
- }
+loginUser(user: User){
+  return this.http.post('http://localhost:3000/api'+'/login',user);
+}
 
 
 }

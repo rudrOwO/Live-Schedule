@@ -1,14 +1,7 @@
-export class UserSignUp{
+export class User{
     username!:string;
     email!:string;
-    pass1!:string;
-    pass2!:string;
-    
+    password!:string;
+   
 }
 
-export class UserLogIn{
-    username!:string;
-    pass1!:string;
-   
-    
-}
